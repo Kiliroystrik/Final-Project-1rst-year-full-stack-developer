@@ -18,7 +18,7 @@ It is a social network platform.
 Contributors names and contact info
 
 Borges Mathieu  
-[borges.mathieu@gmail.com](https://crosseed.fr)
+[crosseed.fr](https://crosseed.fr)
 
 ## Version History
 
