@@ -13,6 +13,29 @@ It is a social network platform.
 
 * Built with symfony 6.1.
 
+# Features
+
+## Subscription/Login-Logout
+
+## User area
+- Create
+- Read
+- Update
+- Delete
+- User logo
+- User banner
+- User description
+- User mood
+- Followed acount
+- Following account
+
+## Post
+- Like
+- Comment
+- Share
+
+### Big things to come...
+
 ## Author
 
 Contributors names and contact info
