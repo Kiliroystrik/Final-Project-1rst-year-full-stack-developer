@@ -1,20 +1,60 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}home!
+{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block main %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	<div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/borge/OneDrive/Bureau/Projet final/Final-Project-1rst-year-full-stack-developer/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/borge/OneDrive/Bureau/Projet final/Final-Project-1rst-year-full-stack-developer/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+		{% for user in users %}
+
+			{% for posts in user.posts %}
+
+				<div class="post-card">
+					<div class="post">
+						<div class="post-top">
+							<div class="left">
+								<img class="avatar" src="{{ asset('download/logo/' ~ user.avatar ) }}" alt="">
+								<div>
+									<p>
+										{{user.username}}
+									</p>
+									<p class="date">
+										{{posts.getCreatedAt|date('d-m-Y')}}
+									</p>
+								</div>
+							</div>
+							<div class="right">
+								<p>
+									<i class="fa-solid fa-heart"></i>
+									{{posts.likes|length}}</p>
+								<p>
+									<i class="fa-solid fa-comment"></i>
+									{{posts.comments|length}}</p>
+							</div>
+						</div>
+
+						<div class="post-content">
+							<p>
+								{{posts.content}}
+							</p>
+						</div>
+					</div>
+					<div class="post-buttons">
+						<button class="like">Like</button>
+						<button class="comment">Comment</button>
+					</div>
+					<div class="post-comments">
+						{% for comments in posts.comments %}
+							<p>
+								{{ comments.content }}
+							</p>
+						{% endfor %}
+					</div>
+				</div>
+			{% endfor %}
+		{% endfor %}
+
+	</div>
 {% endblock %}
